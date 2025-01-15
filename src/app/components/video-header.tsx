@@ -13,7 +13,7 @@ export function VideoHeader() {
   }, [])
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section style={{ height: '800px' }} className="relative overflow-hidden">
     <video
       ref={videoRef}
       autoPlay
