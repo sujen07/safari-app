@@ -1,101 +1,153 @@
-import Image from "next/image";
+import Image from 'next/image'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Calendar } from "@/components/ui/calendar"
+import { Card, CardContent } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { AmenitiesSection } from './components/amenities-section'
+import { VideoHeader } from './components/video-header'
 
-export default function Home() {
+export default function VineyardRental() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-stone-50 text-stone-800">
+      <VideoHeader />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* About Section */}
+      <section className="py-20 px-4 md:px-0">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-bold mb-6">Welcome to Safari Estate</h2>
+          <p className="text-lg mb-8">
+            Nestled in the heart of wine country, our stunning vineyard home offers the perfect backdrop for unforgettable events and serene vacations. Immerse yourself in the beauty of rolling hills, lush grapevines, and breathtaking sunsets.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-semibold mb-4">Events</h3>
+                <p>Host your dream wedding, corporate retreat, or special celebration surrounded by the natural beauty of our vineyard.</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-semibold mb-4">Vacations</h3>
+                <p>Escape to our luxurious vineyard home for a relaxing getaway. Enjoy wine tastings, scenic walks, and cozy evenings by the fireplace.</p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      <AmenitiesSection />
+
+      {/* Gallery Section */}
+      <section className="py-20 bg-stone-100">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12">Experience Vineyard Vista</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <Image
+              src="/lib/vineyard-house.jpg"
+              alt="Rows of grape vines in a lush vineyard"
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+            <Image
+              src="/lib/vineyard-house.jpg"
+              alt="Luxurious bedroom with a view of the vineyard"
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+            <Image
+              src="/lib/vineyard-house.jpg"
+              alt="Elegant dining setup in the vineyard"
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+            <Image
+              src="/lib/vineyard-house.jpg"
+              alt="Wine tasting experience with vineyard view"
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+            <Image
+              src="/lib/vineyard-house.jpg"
+              alt="Cozy fireplace in the vineyard retreat"
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+            <Image
+              src="/lib/vineyard-house.jpg"
+              alt="Sunset over the vineyard hills"
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact/Booking Section */}
+      <section className="py-20 px-4 md:px-0">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-4xl font-bold text-center mb-12">Book Your Experience</h2>
+          <Tabs defaultValue="tour">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="tour">Schedule a Tour</TabsTrigger>
+              <TabsTrigger value="stay">Book a Stay</TabsTrigger>
+            </TabsList>
+            <TabsContent value="tour">
+              <Card>
+                <CardContent className="p-6">
+                  <form className="space-y-4">
+                    <Input placeholder="Your Name" />
+                    <Input type="email" placeholder="Your Email" />
+                    <Input type="tel" placeholder="Your Phone" />
+                    <Textarea placeholder="Tell us about your event or vacation plans" />
+                    <Calendar className="rounded-md border" />
+                    <Button className="w-full">Schedule Tour</Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="stay">
+              <Card>
+                <CardContent className="p-6">
+                  <form className="space-y-4">
+                    <Input placeholder="Your Name" />
+                    <Input type="email" placeholder="Your Email" />
+                    <Input type="tel" placeholder="Your Phone" />
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="check-in" className="block text-sm font-medium text-gray-700 mb-1">Check-in</label>
+                        <Input id="check-in" type="date" />
+                      </div>
+                      <div>
+                        <label htmlFor="check-out" className="block text-sm font-medium text-gray-700 mb-1">Check-out</label>
+                        <Input id="check-out" type="date" />
+                      </div>
+                    </div>
+                    <Input type="number" placeholder="Number of Guests" min="1" />
+                    <Textarea placeholder="Any special requests?" />
+                    <Button className="w-full">Book Stay</Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-stone-800 text-white py-8">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2025 Vineyard Vista Retreat. All rights reserved.</p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
+
